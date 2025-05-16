@@ -1,0 +1,253 @@
+        /* --- General Styles --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f8ff; /* AliceBlue - un azul muy claro y alegre */
+            color: #333;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #ff6347; /* Tomato - un rojo anaranjado vibrante */
+            margin-bottom: 10px;
+        }
+
+        .intro-text {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- Cards Container --- */
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px; /* Espacio entre tarjetas */
+        }
+
+        /* --- Card Styles (Flip Effect) --- */
+        .card {
+            background-color: transparent;
+            width: 280px;
+            height: 380px;
+            perspective: 1000px; /* Efecto 3D */
+            cursor: pointer;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            border-radius: 15px; /* Heredar el borde redondeado */
+        }
+
+        .card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden; /* Safari */
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 15px; /* Bordes redondeados para las caras */
+        }
+
+        .card-front {
+            /* Colores base para cada pecado - se sobreescribirán luego */
+            color: white;
+        }
+
+        .card-back {
+            /* Colores base para cada virtud - se sobreescribirán luego */
+            color: #333;
+            transform: rotateY(180deg);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.8em;
+        }
+        .card p {
+            font-size: 0.95em;
+            margin-bottom: 10px;
+        }
+        .card .shadow-insight {
+            font-style: italic;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        /* --- Colores específicos para cada tarjeta --- */
+        /* Pecados (Front) */
+        .card[data-sin="ira"] .card-front { background-color: #ff7f50; } /* Coral */
+        .card[data-sin="gula"] .card-front { background-color: #ffb6c1; } /* LightPink */
+        .card[data-sin="avaricia"] .card-front { background-color: #ffd700; color: #583c00; } /* Gold */
+        .card[data-sin="lujuria"] .card-front { background-color: #ee82ee; } /* Violet */
+        .card[data-sin="pereza"] .card-front { background-color: #add8e6; color: #003366;} /* LightBlue */
+        .card[data-sin="envidia"] .card-front { background-color: #98fb98; color: #004d00;} /* PaleGreen */
+        .card[data-sin="soberbia"] .card-front { background-color: #dda0dd; } /* Plum */
+
+        /* Virtudes (Back) */
+        .card[data-sin="ira"] .card-back { background-color: #b0e0e6; } /* PowderBlue */
+        .card[data-sin="gula"] .card-back { background-color: #fffacd; } /* LemonChiffon */
+        .card[data-sin="avaricia"] .card-back { background-color: #e6e6fa; } /* Lavender */
+        .card[data-sin="lujuria"] .card-back { background-color: #ffefd5; } /* PapayaWhip */
+        .card[data-sin="pereza"] .card-back { background-color: #f5deb3; } /* Wheat */
+        .card[data-sin="envidia"] .card-back { background-color: #f0fff0; } /* Honeydew */
+        .card[data-sin="soberbia"] .card-back { background-color: #fff0f5; } /* LavenderBlush */
+
+        .card-back h3 {
+            color: #20bf6b; /* Verde alegre para título de virtud */
+            font-size: 1.5em;
+        }
+
+        .card-back .virtue-detail {
+            font-weight: bold;
+            color: #0779e4; /* Azul para detalle de virtud */
+        }
+
+        /* --- Footer --- */
+        footer {
+            margin-top: 50px;
+            padding: 30px;
+            font-size: 1em;
+            font-weight: bold;
+            color: #0779e4;
+            background-color: #edf0f1; /* AliceBlue - un azul muy claro y alegre */
+            border-radius: 10px;
+        }
+
+
+
+        
+  /* --- Utilidades --- */
+.text-center { text-align: center; }
+.bg-light { background-color: var(--light-gray); }
+.hidden { opacity: 0.75; transform: translateY(30px); } /* Aumentar desplazamiento inicial */
+.visible { opacity: 1; transform: translateY(0); transition: opacity 0.8s ease-out, transform 0.8s ease-out; } /* Animación más suave */
+a { text-decoration: none; color: var(--primary); transition: color 0.3s ease; }
+a:hover { color: var(--secondary); }
+
+.container2 { max-width: 1140px; margin: 20px auto; padding: 0 20px; }
+
+  /* --- Sección Blog --- */
+  #blog { margin-top: 50px; }
+.blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
+.blog-post-preview { background-color: var(--light); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-light); transition: transform 0.3s ease, box-shadow 0.3s ease; border: 1px solid #e0e0e0; display: flex; flex-direction: column; }
+.blog-post-preview:hover { transform: translateY(-8px); box-shadow: var(--shadow-medium); }
+.blog-post-image { height: 200px; background-color: var(--light-gray); overflow: hidden; }
+.blog-post-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.blog-post-preview:hover .blog-post-image img { transform: scale(1.05); }
+.blog-post-content { padding: 1.8rem; flex-grow: 1; display: flex; flex-direction: column; }
+.blog-post-content h4 { margin-bottom: 0.6rem; line-height: 1.4; }
+.blog-post-content h4 a { color: var(--dark); font-size: 1.25rem; }
+.blog-post-content h4 a:hover { color: var(--primary); }
+.blog-post-meta { font-size: 0.9rem; color: var(--medium-gray); margin-bottom: 1.2rem; }
+.blog-post-meta i { margin-right: 6px; }
+.blog-post-excerpt { font-size: 1rem; margin-bottom: 1.5rem; flex-grow: 1; }
+
+.read-more-link { font-weight: 600; color: var(--primary); font-size: 0.95rem; margin-top: auto; align-self: flex-start; } /* Alinea abajo a la izquierda */
+.read-more-link:hover { text-decoration: underline; }
+.read-more-link i { margin-left: 6px; transition: transform 0.3s ease; }
+.read-more-link:hover i { transform: translateX(4px); }
+
+.read-less-link { font-weight: 600; color: var(--primary); font-size: 0.95rem; margin-top: auto; align-self: flex-start; } /* Alinea abajo a la izquierda */
+.read-less-link:hover { text-decoration: underline; }
+.read-less-link i { margin-left: 6px; transition: transform 0.3s ease; }
+.read-less-link:hover i { transform: translateX(-4px); }
+
+
+
+/* --- Sección blog --- */
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+
+h2 {
+  color: #2C3E50;
+  margin-top: 30px;
+  padding-bottom: 5px;
+}
+
+h3 {
+  color: #2980b9;
+  margin-top: 20px;
+}
+
+p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    background-color: #ecf0f1;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-left: 5px solid #3498db;
+    border-radius: 4px;
+}
+
+li strong {
+    color: #c0392b; /* Un rojo suave para destacar el pecado */
+}
+
+em, .quote-highlight {
+    font-style: italic;
+    color: #555;
+}
+
+blockquote {
+    border-left: 4px solid #7f8c8d;
+    padding-left: 15px;
+    margin-left: 0;
+    margin-right: 0;
+    font-style: italic;
+    color: #34495e;
+    background-color: #f0f8ff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.summary {
+    background-color: #e8f6f3;
+    padding: 20px;
+    border: 1px solid #a3e4d7;
+    border-radius: 5px;
+    margin-top: 25px;
+}
